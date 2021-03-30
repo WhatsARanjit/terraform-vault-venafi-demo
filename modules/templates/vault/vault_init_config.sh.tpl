@@ -22,6 +22,16 @@ nohup /usr/local/bin/vault server -dev \
   -dev-root-token-id="root" \
   -dev-listen-address="0.0.0.0:8200" &
 
+# Enable AWS auth
+vault auth enable aws
+vault write -f auth/aws/config/client
+
+vault write auth/aws/role/aws-demo-role-ec2 \
+  auth_type=ec2 \
+  bound_ami_id=${ami_id} \
+  policies=aws-demo-policy \
+  max_ttl=500h
+
 # Enable secret mount and write secret
 echo "path \"kv1/aws_demo\" { 
     capabilities = [\"create\", \"read\", \"update\", \"delete\"]
@@ -29,4 +39,4 @@ echo "path \"kv1/aws_demo\" {
 
 vault secrets enable -path=kv1 -version=1 kv
 
-vault write kv1/aws_demo value=ThisTestWasSuccessful!
+vault write kv1/aws_demo value=${supersecret}

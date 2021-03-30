@@ -19,5 +19,5 @@ variable "iam_instance_profile_name" {
 }
 
 output "ip" {
-  value = "${aws_instance.ubuntu.public_ip}"
+  value = aws_instance.ubuntu.public_ip
 }

@@ -23,7 +23,6 @@ SECRET=$(curl \
 
 echo "Secret retrieved from Vault: $SECRET"
 
-echo "Secret retrieved from Vault: $SECRET" > /tmp/vault_secret.txt
 
 # NGINX app stuff
 apt-get update --yes
@@ -31,6 +30,7 @@ apt-get install --yes nginx
 mkdir -p /var/www
 echo -e "${nginxconf}" > /etc/nginx/sites-enabled/default
 echo -e "${index_page}" >> /var/www/index.html
+echo "$SECRET" >> /var/www/index.html
 echo -e "${stylesheet}" >> /var/www/styles.css
 mkdir -p /etc/nginx/ssl
 echo -e "${certificate}" >> /etc/nginx/ssl/certificate.pem

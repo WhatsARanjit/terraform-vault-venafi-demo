@@ -1,9 +1,13 @@
 body {
-    background-image: url(background.png);
+    background-image: url(http://whatsaranjit.com/terraform-venafi-vault.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-color: rgb(246,	246,	248);
+    font-family: Geneva;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    margin: 20px;
 }
 
 h1 {

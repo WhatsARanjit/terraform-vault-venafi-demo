@@ -2,11 +2,11 @@ variable "aws_region" {}
 variable "name_prefix" {}
 
 variable "ssh_port" {
-  default = "22"
+  default = 22
 }
 
 variable vault_listening_port {
-  default = "8200"
+  default = 8200
 }
 
 # Allows ssh traffic from any source
@@ -30,5 +30,5 @@ variable "allowed_vault_cidr_blocks" {
 
 # This would allow updating rules amd to allow access based on this id
 output "security_group_id" {
-  value = "${aws_security_group.lc_security_group.id}"
+  value = aws_security_group.lc_security_group.id
 }

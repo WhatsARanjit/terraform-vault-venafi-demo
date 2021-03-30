@@ -1,3 +1,4 @@
+## AWS stuff
 variable "aws_region" {
   default = "us-east-1"
 }
@@ -12,12 +13,12 @@ variable "ssh_key_name" {
 
 variable "owner_tag" {
   description = "Tag identifying instance owner"
-  default     = "Vault-aws-test"
+  default     = "vault-aws-test"
 }
 
 variable "ttl_tag" {
   description = "TTL tracking tag for custom management"
-  default     = "24"
+  default     = "24h"
 }
 
 variable "ami_id" {
@@ -52,4 +53,10 @@ variable "app_name" {
 variable "certificate_san" {
   description = "The domain of the certificate SAN"
   default     = "venafidemo.com"
+}
+
+## Vault secrets
+# Secret
+variable "supersecret" {
+  description = "Secret to be displayed on the home page of app"
 }
