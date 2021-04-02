@@ -59,4 +59,5 @@ variable "certificate_san" {
 # Secret
 variable "supersecret" {
   description = "Secret to be displayed on the home page of app"
+  default     = "this_is_secret"
 }
